@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Font: Cabinet Grotesk (Display/Headings) ── */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Font: Satoshi (Body) ── */
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Font: Plus Jakarta Sans (UI / Accent) ── */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* ── Core palette: Deep Navy + Amber Gold ── */
+    --background: 0.99 0.004 240;           /* bright white, very subtle cool tint */
+    --foreground: 0.18 0.03 255;            /* deep navy text */
+
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.03 255;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.03 255;
+
+    /* Deep navy blue primary */
+    --primary: 0.26 0.09 256;
+    --primary-foreground: 0.98 0 0;
+
+    /* Amber/gold accent */
+    --accent: 0.72 0.16 68;
+    --accent-foreground: 0.14 0.04 255;
+
+    --secondary: 0.96 0.006 240;
+    --secondary-foreground: 0.26 0.09 256;
+
+    --muted: 0.97 0.005 240;
+    --muted-foreground: 0.5 0.025 255;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.92 0.01 240;
+    --input: 0.92 0.01 240;
+    --ring: 0.55 0.07 256;
+
+    /* Brand specific */
+    --brand-navy: 0.22 0.09 256;
+    --brand-navy-deep: 0.14 0.06 258;
+    --brand-gold: 0.72 0.16 68;
+    --brand-gold-light: 0.85 0.12 72;
+    --brand-steel: 0.45 0.04 240;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.22 0.09 256;
+    --sidebar-foreground: 0.985 0 0;
+    --sidebar-primary: 0.72 0.16 68;
+    --sidebar-primary-foreground: 0.14 0.04 255;
+    --sidebar-accent: 0.3 0.07 256;
+    --sidebar-accent-foreground: 0.985 0 0;
+    --sidebar-border: 0.35 0.05 256;
+    --sidebar-ring: 0.55 0.07 256;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Satoshi", "Plus Jakarta Sans", sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Cabinet Grotesk", "Satoshi", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Cabinet Grotesk", "Satoshi", sans-serif;
+  }
+  .font-body {
+    font-family: "Satoshi", "Plus Jakarta Sans", sans-serif;
+  }
+  .font-ui {
+    font-family: "Plus Jakarta Sans", "Satoshi", sans-serif;
+  }
+
+  /* Brand color utilities */
+  .bg-brand-navy {
+    background-color: oklch(var(--brand-navy));
+  }
+  .bg-brand-navy-deep {
+    background-color: oklch(var(--brand-navy-deep));
+  }
+  .bg-brand-gold {
+    background-color: oklch(var(--brand-gold));
+  }
+  .text-brand-navy {
+    color: oklch(var(--brand-navy));
+  }
+  .text-brand-gold {
+    color: oklch(var(--brand-gold));
+  }
+  .text-brand-navy-deep {
+    color: oklch(var(--brand-navy-deep));
+  }
+  .border-brand-gold {
+    border-color: oklch(var(--brand-gold));
+  }
+  .border-brand-navy {
+    border-color: oklch(var(--brand-navy));
+  }
+
+  /* Gradient utilities */
+  .gradient-navy {
+    background: linear-gradient(135deg, oklch(0.14 0.06 258) 0%, oklch(0.22 0.09 256) 100%);
+  }
+  .gradient-gold-stripe {
+    background: linear-gradient(90deg, oklch(0.72 0.16 68) 0%, oklch(0.82 0.14 75) 100%);
+  }
+
+  /* Section pattern */
+  .section-pattern {
+    background-image: radial-gradient(circle at 1px 1px, oklch(0.90 0.012 240) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  /* Glass effect */
+  .glass-card {
+    background: oklch(1 0 0 / 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(1 0 0 / 0.15);
+  }
+}
