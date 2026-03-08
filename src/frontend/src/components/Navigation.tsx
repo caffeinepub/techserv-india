@@ -17,6 +17,45 @@ const navLinks = [
   { label: "Contact", href: "#contact", ocid: "nav.contact.link" },
 ];
 
+function MatrixLogo() {
+  return (
+    <div className="flex items-center gap-2.5">
+      {/* Uploaded Matrix Logo */}
+      <img
+        src="/assets/uploads/Matrix-Logo-Caffeine-1.png"
+        alt="Matrix Networks and Solutions Logo"
+        style={{ height: "52px", width: "auto", flexShrink: 0 }}
+      />
+
+      {/* Company name + tagline */}
+      <div className="flex flex-col leading-tight">
+        <span
+          style={{
+            fontSize: "19px",
+            fontWeight: 700,
+            color: "#001f5b",
+            lineHeight: 1.2,
+            fontFamily: "inherit",
+          }}
+        >
+          Matrix Networks and Solutions
+        </span>
+        <span
+          style={{
+            fontSize: "15px",
+            fontStyle: "italic",
+            color: "#4ade80",
+            fontWeight: 400,
+            lineHeight: 1.3,
+          }}
+        >
+          Let us Make it Possible
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -65,12 +104,9 @@ export function Navigation() {
             type="button"
             onClick={() => scrollTo("#home")}
             className="flex items-center gap-2 group"
+            data-ocid="nav.home.link"
           >
-            <img
-              src="/assets/generated/logo-transparent.dim_200x80.png"
-              alt="Matrix Networks and Solutions Logo"
-              className="h-10 lg:h-12 w-auto object-contain"
-            />
+            <MatrixLogo />
           </button>
 
           {/* Desktop Nav */}

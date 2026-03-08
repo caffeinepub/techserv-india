@@ -30,8 +30,8 @@ export function HeroSection() {
       {/* Background */}
       <div className="absolute inset-0">
         <img
-          src="/assets/generated/hero-bg.dim_1400x700.jpg"
-          alt="Technology background"
+          src="/assets/generated/hero-skyscrapers-golden-hour.dim_1920x1080.jpg"
+          alt="City skyline at golden hour"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-brand-navy-deep/60 via-brand-navy/50 to-brand-navy-deep/55" />
@@ -127,7 +127,7 @@ export function HeroSection() {
               onClick={() => scrollTo("services")}
               size="lg"
               variant="outline"
-              className="border-white/40 text-white hover:bg-white/10 hover:border-white/60 font-ui font-semibold px-8 h-12 text-base rounded-md transition-all duration-200"
+              className="border-blue-500 text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 hover:border-blue-400 font-ui font-semibold px-8 h-12 text-base rounded-md transition-all duration-200"
             >
               Our Services
             </Button>
