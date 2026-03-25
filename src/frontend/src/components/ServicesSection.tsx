@@ -1,8 +1,31 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Cloud, Database, Monitor, Shield } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Cloud,
+  Database,
+  Monitor,
+  Shield,
+  X,
+} from "lucide-react";
 import { motion } from "motion/react";
 
-const services = [
+type ServiceSection = { heading: string; items: string[]; positive: boolean };
+
+type Service = {
+  id: string;
+  ocid: string;
+  icon: typeof Monitor;
+  title: string;
+  description: string;
+  points?: string[];
+  sections?: ServiceSection[];
+  color: string;
+  iconColor: string;
+  badgeColor: string;
+};
+
+const services: Service[] = [
   {
     id: "managed_it",
     ocid: "services.managed_it.card",
@@ -46,12 +69,29 @@ const services = [
     title: "ERP Implementation",
     description:
       "Streamline your operations with best-fit ERP solutions — open-source or licensed — tailored for Indian MSMEs.",
-    points: [
-      "SAP Business One & Odoo implementation",
-      "Oracle NetSuite deployment & migration",
-      "Tally ERP customization & integration",
-      "Process mapping & change management",
-      "Post-implementation support & training",
+    sections: [
+      {
+        heading: "Move From",
+        positive: false,
+        items: [
+          "Solutions That Cost Fortunes",
+          "Difficult to use",
+          "Long Time to Implement",
+          "Does not allow Focus on Business",
+        ],
+      },
+      {
+        heading: "To Solutions & Framework That Understand",
+        positive: true,
+        items: [
+          "Business & Process mapping & change management",
+          "Post-implementation support & training",
+          "Does not Cost Fortunes",
+          "Breeze to use",
+          "Weeks to Implement",
+          "Allows Focus on Business",
+        ],
+      },
     ],
     color: "from-green-600/15 to-green-600/5",
     iconColor: "text-green-700",
@@ -146,19 +186,58 @@ export function ServicesSection() {
                     {service.description}
                   </p>
 
-                  <ul className="space-y-2 mb-6">
-                    {service.points.map((point) => (
-                      <li
-                        key={point}
-                        className="flex items-start gap-2 text-sm font-body text-foreground/80"
-                      >
-                        <span
-                          className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${service.iconColor.replace("text-", "bg-")}`}
-                        />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
+                  {service.sections ? (
+                    <div className="mb-6 space-y-4">
+                      {service.sections.map((section) => (
+                        <div key={section.heading}>
+                          <p
+                            className={`text-xs font-ui font-bold uppercase tracking-wider mb-2 ${
+                              section.positive
+                                ? "text-green-700"
+                                : "text-red-600"
+                            }`}
+                          >
+                            {section.heading}
+                          </p>
+                          <ul className="space-y-1.5">
+                            {section.items.map((item) => (
+                              <li
+                                key={item}
+                                className="flex items-start gap-2 text-sm font-body text-foreground/80"
+                              >
+                                {section.positive ? (
+                                  <Check
+                                    size={14}
+                                    className="mt-0.5 shrink-0 text-green-600"
+                                  />
+                                ) : (
+                                  <X
+                                    size={14}
+                                    className="mt-0.5 shrink-0 text-red-500"
+                                  />
+                                )}
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <ul className="space-y-2 mb-6">
+                      {(service.points ?? []).map((point) => (
+                        <li
+                          key={point}
+                          className="flex items-start gap-2 text-sm font-body text-foreground/80"
+                        >
+                          <span
+                            className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${service.iconColor.replace("text-", "bg-")}`}
+                          />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
                   <Button
                     variant="ghost"

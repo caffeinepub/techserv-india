@@ -81,7 +81,7 @@ export function WhyUsSection() {
             Why Choose Us
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Why 500+ MSMEs Trust Us
+            Why 100+ MSMEs Trust Us
           </h2>
           <p className="text-white/65 max-w-2xl mx-auto font-body text-lg">
             We don't just provide IT services — we become your strategic

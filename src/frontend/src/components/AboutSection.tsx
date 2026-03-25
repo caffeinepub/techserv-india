@@ -112,7 +112,7 @@ export function AboutSection() {
               network integration firm with a clear mission — make
               enterprise-grade IT accessible to India's small and medium
               businesses. Over three decades, we have grown into a full-spectrum
-              managed services provider trusted by 500+ MSME organizations
+              managed services provider trusted by 100+ MSME organizations
               across the country.
             </p>
             <p className="text-muted-foreground font-body mb-6 leading-relaxed">

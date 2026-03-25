@@ -11,7 +11,7 @@ import { motion } from "motion/react";
 
 const stats = [
   { value: "30+", label: "Years of Excellence", icon: TrendingUp },
-  { value: "500+", label: "MSME Clients", icon: Server },
+  { value: "100+", label: "MSME Clients", icon: Server },
   { value: "99.9%", label: "Uptime SLA", icon: Shield },
   { value: "24/7", label: "Support", icon: Phone },
 ];
